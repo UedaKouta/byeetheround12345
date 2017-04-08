@@ -10,4 +10,9 @@
 <body>
    <h1>Sample</h1>
    <p>{{$message}}</p>
+      <form action="/test-url4" method="post">
+          {{ csrf_field() }}
+          <input type="text" name="post_param">
+          <input type="submit">
+      </form>
 </body>
