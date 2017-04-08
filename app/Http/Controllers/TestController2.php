@@ -10,6 +10,6 @@ class TestController2 extends Controller
 {
    public function getIndex()
    {
-       return view('test-view', ['message' => 'ThankYou!']);
+       return view('test-blade', ['message' => 'ThankYou!']);
    }
 }
