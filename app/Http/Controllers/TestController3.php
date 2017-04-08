@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TestController2 extends Controller
+class TestController3 extends Controller
 {
    public function getIndex()
    {
-       return view('test-view', ['message' => 'ThankYou!']);
+       return view('test-view', ['message' => 'Good!']);
    }
 }
