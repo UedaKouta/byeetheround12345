@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 
 class TestController5 extends Controller
 {
-   public function foo()
+   public function foo2()
    {
-       $post_param = Request::input('post_param');
-       return view('test-blade', ['message' => $post_param]);
+       $post_param2 = Request::input('post_param2');
+       return view('test-blade', ['message' => $post_param2]);
    }
 }

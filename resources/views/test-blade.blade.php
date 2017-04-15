@@ -17,7 +17,12 @@
       </form>
       <form action="/test-url5" method="post">
           {{ csrf_field() }}
-          <input type="text" name="post_param">
+          <input type="text" name="post_param2">
+          <input type="submit">
+      </form>
+      <form action="/test-url6" method="post">
+          {{ csrf_field() }}
+          <input type="text" name="post_param3">
           <input type="submit">
       </form>
 </body>
