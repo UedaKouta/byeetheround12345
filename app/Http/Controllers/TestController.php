@@ -5,11 +5,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Room;
 
 class TestController extends Controller
 {
    public function getIndex()
    {
-       return view('test-blade', ['message' => 'Hello!!!!!']);
+     $RoomModel = new Room;
+     $res = $RoomModel->read_by_name('B room');
+
+     return view('test-blade', ['message' => 'Hello!!!!!', 'room_recs' => $res]);
    }
 }
