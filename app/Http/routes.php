@@ -20,3 +20,5 @@ Route::controller('test-url3','TestController3');
 Route::post('test-url4','TestController4@foo');
 Route::post('test-url5','TestController5@foo2');
 Route::post('test-url6','TestController6@foo3');
+Route::get('booking','bookingController@index');
+Route::get('calendar','calendarController@index');
