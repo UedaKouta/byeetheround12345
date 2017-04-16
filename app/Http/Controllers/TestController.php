@@ -12,7 +12,7 @@ class TestController extends Controller
    public function getIndex()
    {
      $RoomModel = new Room;
-     $res = $RoomModel->read_by_name('B room');
+     $res = $RoomModel->read_by_name('会議室A');
 
      return view('test-blade', ['message' => 'Hello!!!!!', 'room_recs' => $res]);
    }

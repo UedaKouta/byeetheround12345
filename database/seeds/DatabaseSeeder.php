@@ -27,9 +27,11 @@ class RoomTableSeeder extends Seeder {
     {
         DB::table('room')->delete();
 
-        Room::create(array('name' => 'A room', 'maximum_capacity' => 10));
-        Room::create(array('name' => 'B room', 'maximum_capacity' => 7));
-        Room::create(array('name' => 'C room', 'maximum_capacity' => 4));
+        Room::create(array('name' => '会議室A', 'maximum_capacity' => 10));
+        Room::create(array('name' => '会議室B', 'maximum_capacity' => 5));
+        Room::create(array('name' => '会議室C', 'maximum_capacity' => 3));
+        Room::create(array('name' => '会議室D', 'maximum_capacity' => 2));
+        Room::create(array('name' => '会議室E', 'maximum_capacity' => 1));
     }
 
 }

@@ -18,8 +18,10 @@ class Room extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'name', 'maximum_capacity'];
-    
+    protected $fillable = ['id', 'name','maximum_capacity'];
+
+
+
     public function read_by_pkey($id) {
       return $this->where('id', '=', $id)->get();
     }
