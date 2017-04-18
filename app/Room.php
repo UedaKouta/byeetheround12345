@@ -21,6 +21,9 @@ class Room extends Model
     protected $fillable = ['id', 'name','maximum_capacity'];
 
 
+    public function read_all() {
+      return $this->get();
+    }
 
     public function read_by_pkey($id) {
       return $this->where('id', '=', $id)->get();

@@ -21,9 +21,9 @@
   				<li class="dropdown active">
   					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">会議室選択 <span class="caret"></span></a>
   					<ul class="dropdown-menu" role="menu">
-  						<li><a href="#">会議室１</a></li>
-  						<li><a href="#">会議室２</a></li>
-  						<li><a href="#">会議室３</a></li>
+              @foreach ($room_recs as $room)
+  						<li><a href="#">{{ $room->name }}</a></li>
+              @endforeach
   					</ul>
   				</li>
 
