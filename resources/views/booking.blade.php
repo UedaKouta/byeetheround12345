@@ -61,7 +61,6 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <input type="hidden" name="kakutei" value="0">
           <button type="submit" class="btn btn-default">確定</button>
         </div>
       </div>
