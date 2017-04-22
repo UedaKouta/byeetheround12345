@@ -53,10 +53,23 @@
             <textarea rows="5" class="form-control" id="ask1"></textarea>
         </div>
       </div>
+
       <div class="form-group">
         <label for="userName" class="col-sm-2 control-label">予約者</label>
         <div class="col-sm-3">
-          <input type="txt" class="form-control" id="userName">
+          <form action="/booking" method="post">
+                      {{ csrf_field() }}
+        <!--  <input type="txt" class="form-control" id="userName"> -->
+                    <input type="text" name="name">
+                              <input type="submit">
+         </form>
+
+         <form action="/booking" method="post">
+             {{ csrf_field() }}
+             <input type="text" name="namekj">
+             <input type="submit">
+         </form>
+
         </div>
       </div>
       <div class="form-group">
