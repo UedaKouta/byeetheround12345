@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Room;
 use App\roomReservation;
+use Log;
 
 
 class BookingController extends Controller
@@ -30,8 +31,17 @@ class BookingController extends Controller
           $RoomReservationModel = new RoomReservation;
           $res = $RoomModel->read_all();
           $usernamekj = Request::input('namekj');
+          $contents = Request::input('contents');
 
-      $insert = $RoomReservationModel->insert_table('会議室A','2018-01-30 19:00:00','2018-01-30 20:00:00',$usernamekj,'ウエダコウタ','いろいろ会議');
+          /*使っていない。あとでタイトルもテーブルに登録できるようにする
+          $title = Request::input('title');*/
+          $starttime = Request::input('starttime');
+          $endtime = Request::input('endtime');
+          $room = Request::input('rname');
+          Log::error("room_null??????" . $room);
+          Log::error("room_null??????" . Request::all());
+
+      $insert = $RoomReservationModel->insert_table($room,$starttime,$endtime,$usernamekj,'ウエダコウタ',$contents);
       return view('booking', ['room_recs' => $res]);
   }
 }

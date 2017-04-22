@@ -13,68 +13,64 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <form class="form-horizontal">
+    <form class="form-horizontal"  action="/booking" method="post">
+             {{ csrf_field() }}
       <div class="form-group">
         <label for="conferenceRoom" class="col-sm-2 control-label">会議室</label>
-        <div class="collapse navbar-collapse" id="navbarEexample">
-  			<ul class="nav navbar-nav">
-  				<li class="dropdown active">
-  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">会議室選択 <span class="caret"></span></a>
-  					<ul class="dropdown-menu" role="menu">
-              @foreach ($room_recs as $room)
-  						<li><a href="#">{{ $room->name }}</a></li>
-              @endforeach
-  					</ul>
-  				</li>
+        <div class="collapse navbar-collapse">
 
-  			</ul>
+          <select name=”rname”>
+               @foreach ($room_recs as $room)
+                  <option value="{{ $room->name }}">
+            						<li><a href="#">{{ $room->name }}</a></li>
+                  </option>
+               @endforeach
+
+          </select>
       </div>
 
       <div class="form-group">
        <label for="startTime" class="col-sm-2 control-label">時間</label>
        <div class="col-sm-1">
-         <input type="txt" class="form-control" id="startTime" placeholder="From">
+                <input type="text"  rows="5" class="form-control"  name="starttime">
        </div>
        <label for="endTime" class="col-sm-1 control-label">TO</label>
        <div class="col-sm-1">
-         <input type="txt" class="form-control" id="endTime" placeholder="To">
+            <input type="text"  rows="5" class="form-control"  name="endtime">
        </div>
      </div>
 
       <div class="form-group">
         <label for="conferenceTitle" class="col-sm-2 control-label">タイトル</label>
         <div class="col-sm-3">
-          <input type="txt" class="form-control" id="conferenceTitle" placeholder="title">
+            <input type="text"  rows="5" class="form-control"  name="title">
         </div>
       </div>
+
       <div class="form-group">
         <label for="content" class="col-sm-2 control-label">内容</label>
         <div class="col-sm-3">
-            <textarea rows="5" class="form-control" id="ask1"></textarea>
+            <input type="text"  rows="5" class="form-control"  name="contents">
         </div>
       </div>
 
       <div class="form-group">
         <label for="userName" class="col-sm-2 control-label">予約者</label>
         <div class="col-sm-3">
-          <form action="/booking" method="post">
-                      {{ csrf_field() }}
+
         <!--  <input type="txt" class="form-control" id="userName"> -->
                     <input type="text" name="name">
                               <input type="submit">
          </form>
 
-         <form action="/booking" method="post">
-             {{ csrf_field() }}
+
              <input type="text" name="namekj">
-             <input type="submit">
-         </form>
 
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">確定</button>
+                     <input type="submit">
         </div>
       </div>
     </form>
