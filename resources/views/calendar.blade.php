@@ -19,86 +19,28 @@
       <table class="table  table-striped table-bordered">
         <thead>
           <tr>
-            <th>***</th>
-            <th>時間（仮）</th>
-            <th>時間（仮）</th>
-            <th>時間（仮）</th>
+            <th></th>
+            @for($t = 0; $t < 24; $t++)
+            <th>{{$t}}:00</th>
+            @endfor
           </tr>
         </thead>
         <tbody>
+          @for($d = 0; $d < $cal_days_range; $d++)
           <tr>
-            <th scope="row">日</th>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
+            <th scope="row">{{ $cal_from_date->modify(' +' . $d . ' day')->format('m月d日') }}</th>
+              @for($t = 0; $t < 24; $t++)
+              {{-- 会議室予約ボタン --}}
+              <td><a href={{ URL::to(action('BookingController@index') . '?' . http_build_query(array('rsv-date'=>$cal_from_date->modify(' +' . $d . ' day')->format('Ymd') . sprintf('%02d', $t) . '0000' ))) }} class="btn btn-primary btn-xs">+</a></td>
+              {{-- TODO: 会議室予約情報の表示 mapで渡して --}}
+              @endfor
           </tr>
-          <tr>
-            <th scope="row">日</th>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-          </tr>
-          <tr>
-            <th scope="row">日</th>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-              <td><button type="button" class="btn btn-default btn-xs">+</button></td>
-          </tr>
+          @endfor
        </tbody>
       </table>
       </div>
     </div>
 
 
-        <!-- こから作成中の日付！！！！！！！スタート-->
-
-    <select name="year" id="id_year">
-    </select>
-    <select name="month" id="id_month">
-    </select>
-    <select name="day" id="id_day">
-    </select>
-    <script>
-    (function() {
-    'use strict';
-
-    /*
-    今日の日付データを変数todayに格納
-    */
-    var optionLoop, this_day, this_month, this_year, today;
-    today = new Date();
-    this_year = today.getFullYear();
-    this_month = today.getMonth() + 1;
-    this_day = today.getDate();
-
-    /*
-    ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
-    */
-    optionLoop = function(start, end, id, this_day) {
-    var i, opt;
-
-    opt = null;
-    for (i = start; i <= end ; i++) {
-      if (i === this_day) {
-        opt += "<option value='" + i + "' selected>" + i + "</option>";
-      } else {
-        opt += "<option value='" + i + "'>" + i + "</option>";
-      }
-    }
-    return document.getElementById(id).innerHTML = opt;
-    };
-
-
-    /*
-    関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）
-    */
-    optionLoop(this_year,2050, 'id_year', this_year);
-    optionLoop(1, 12, 'id_month', this_month);
-    optionLoop(1, 31, 'id_day', this_day);
-    })();
-
-    </script>
-
-        <!--ここまで作成中の日付！！！！！！！おわり-->
   </body>
 </html>
