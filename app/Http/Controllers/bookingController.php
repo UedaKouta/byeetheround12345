@@ -13,7 +13,7 @@ class bookingController extends Controller
   public function index()
   {
       $RoomModel = new Room;
-      $RoomReservationModel = new roomReservation;
+      $RoomReservationModel = new RoomReservation;
 
       $res = $RoomModel->read_all();
       $update = $RoomReservationModel->update_by_time('2018-01-30 19:00:00');

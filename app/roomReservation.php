@@ -34,7 +34,4 @@ class roomReservation extends Model
       return $this->where('starttime','=',$starttime)->update(['starttime' => '2999-12-31 19:00:00']);;
     }
 
-
-
-
 }
