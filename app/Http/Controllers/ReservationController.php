@@ -10,7 +10,7 @@ use App\roomReservation;
 use Log;
 
 
-class BookingController extends Controller
+class ReservationController extends Controller
 {
   public function index()
   {
@@ -21,7 +21,7 @@ class BookingController extends Controller
       $res = $RoomModel->read_all();
       $update = $RoomReservationModel->update_by_time('2018-01-30 19:00:00');
       /*$insert = $RoomReservationModel->insert_table('ゴミデータ','2018-01-30 19:00:00','2018-01-30 20:00:00','ゴミ上田','ウエダコウタ','いろいろ会議');*/
-        return view('booking', ['room_recs' => $res]);
+        return view('reservation', ['room_recs' => $res]);
   }
 
   public function foo()
@@ -35,13 +35,17 @@ class BookingController extends Controller
 
           /*使っていない。あとでタイトルもテーブルに登録できるようにする
           $title = Request::input('title');*/
+
+          $room = Request::input('rname');
           $starttime = Request::input('starttime');
           $endtime = Request::input('endtime');
-          $room = Request::input('rname');
           Log::error("room_null??????" . $room);
       /*    Log::error("room_null??????" . Request::all());*/
 
-      $insert = $RoomReservationModel->insert_table($room,$starttime,$endtime,$usernamekj,'ウエダコウタ',$contents);
-      return view('booking', ['room_recs' => $res]);
+         /*配列格納*/
+          $indatas = array($room,$starttime,$endtime,$usernamekj,'ウエダコウタ',$contents);
+
+      $insert = $RoomReservationModel->insert_table($indatas);
+      return view('reservation', ['room_recs' => $res]);
   }
 }

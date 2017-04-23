@@ -31,7 +31,7 @@
             <th scope="row">{{ $cal_from_date->modify(' +' . $d . ' day')->format('m月d日') }}</th>
               @for($t = 0; $t < 24; $t++)
               {{-- 会議室予約ボタン --}}
-              <td><a href={{ URL::to(action('BookingController@index') . '?' . http_build_query(array('rsv-date'=>$cal_from_date->modify(' +' . $d . ' day')->format('Ymd') . sprintf('%02d', $t) . '0000' ))) }} class="btn btn-primary btn-xs">+</a></td>
+              <td><a href={{ URL::to(action('ReservationController@index') . '?' . http_build_query(array('rsv-date'=>$cal_from_date->modify(' +' . $d . ' day')->format('Ymd') . sprintf('%02d', $t) . '0000' ))) }} class="btn btn-primary btn-xs">+</a></td>
               {{-- TODO: 会議室予約情報の表示 mapで渡して --}}
               @endfor
           </tr>

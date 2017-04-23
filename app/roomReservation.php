@@ -34,8 +34,8 @@ class roomReservation extends Model
       return $this->where('starttime','=',$starttime)->update(['starttime' => '2999-12-31 19:00:00']);;
     }
 
-    public function insert_table($roomname,$starttime,$endtime,$usernamekj,$usernamekn,$Contents) {
+    public function insert_table($indatas) {
       return $this->insertGetId(
-    ['roomname'=>$roomname,'starttime'=>$starttime,'endtime'=>$endtime,'usernamekj'=>$usernamekj,'usernamekn'=>$usernamekn,'Contents'=>$Contents,'membernum'=>10]);
+    ['roomname'=>$indatas[0],'starttime'=>$indatas[1],'endtime'=>$indatas[2],'usernamekj'=>$indatas[3],'usernamekn'=>$indatas[4],'Contents'=>$indatas[5],'membernum'=>10]);
     }
 }

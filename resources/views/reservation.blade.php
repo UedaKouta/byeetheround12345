@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <form class="form-horizontal"  action="/booking" method="post">
+    <form class="form-horizontal"  action="/reservation" method="post">
              {{ csrf_field() }}
       <div class="form-group">
         <label for="conferenceRoom" class="col-sm-2 control-label">会議室</label>
