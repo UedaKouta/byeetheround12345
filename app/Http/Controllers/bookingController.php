@@ -39,7 +39,7 @@ class BookingController extends Controller
           $endtime = Request::input('endtime');
           $room = Request::input('rname');
           Log::error("room_null??????" . $room);
-          Log::error("room_null??????" . Request::all());
+      /*    Log::error("room_null??????" . Request::all());*/
 
       $insert = $RoomReservationModel->insert_table($room,$starttime,$endtime,$usernamekj,'ウエダコウタ',$contents);
       return view('booking', ['room_recs' => $res]);

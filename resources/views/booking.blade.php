@@ -19,7 +19,7 @@
         <label for="conferenceRoom" class="col-sm-2 control-label">会議室</label>
         <div class="collapse navbar-collapse">
 
-          <select name=”rname”>
+      <!--    <select class="form-control" id=”rname” name=”rname”>
                @foreach ($room_recs as $room)
                   <option value="{{ $room->name }}">
             						<li><a href="#">{{ $room->name }}</a></li>
@@ -27,6 +27,13 @@
                @endforeach
 
           </select>
+-->
+          <select class="form-control" id="rname" name="rname">
+ @foreach ($room_recs as $room)
+                  <option value="{{ $room->name }}">{{ $room->name }}</option>
+ @endforeach
+                </select>
+
       </div>
 
       <div class="form-group">
@@ -59,9 +66,6 @@
         <div class="col-sm-3">
 
         <!--  <input type="txt" class="form-control" id="userName"> -->
-                    <input type="text" name="name">
-                              <input type="submit">
-         </form>
 
 
              <input type="text" name="namekj">
