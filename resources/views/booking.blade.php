@@ -17,7 +17,7 @@
              {{ csrf_field() }}
       <div class="form-group">
         <label for="conferenceRoom" class="col-sm-2 control-label">会議室</label>
-        <div class="collapse navbar-collapse">
+               <div class="col-sm-3">
 
       <!--    <select class="form-control" id=”rname” name=”rname”>
                @foreach ($room_recs as $room)
@@ -29,13 +29,15 @@
           </select>
 -->
           <select class="form-control" id="rname" name="rname">
- @foreach ($room_recs as $room)
-                  <option value="{{ $room->name }}">{{ $room->name }}</option>
- @endforeach
-                </select>
+                  @foreach ($room_recs as $room)
+                  <option value="{{ $room->name }}">
+                    <li><a href="#">{{ $room->name }}</a></li>
+                  </option>
+                  @endforeach
+           </select>
 
       </div>
-
+</div>
       <div class="form-group">
        <label for="startTime" class="col-sm-2 control-label">時間</label>
        <div class="col-sm-1">
