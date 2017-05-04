@@ -26,13 +26,26 @@
           </tr>
         </thead>
         <tbody>
+          {{-- 予約のあった会議室を取得 --}}
+          {{--*/ $rooms = $rsv_list->keys() /*--}}
           @for($d = 0; $d < $cal_days_range; $d++)
           <tr>
             <th scope="row">{{ $cal_from_date->modify(' +' . $d . ' day')->format('m月d日') }}</th>
               @for($t = 0; $t < 24; $t++)
               {{-- 会議室予約ボタン --}}
-              <td><a href={{ URL::to(action('ReservationController@index') . '?' . http_build_query(array('rsv-date'=>$cal_from_date->modify(' +' . $d . ' day')->format('Ymd') . sprintf('%02d', $t) . '0000' ))) }} class="btn btn-primary btn-xs">+</a></td>
-              {{-- TODO: 会議室予約情報の表示 mapで渡して --}}
+              <td>
+                <a href={{ URL::to(action('ReservationController@index') . '?' . http_build_query(array('rsv-date'=>$cal_from_date->format('Ymd') . sprintf('%02d', $t) . '0000' ))) }} class="btn btn-primary btn-xs">+</a>
+                {{-- 予約情報の表示 --}}
+                {{--*/ $date = $cal_from_date->format('Y-m-d') . ' ' . sprintf('%02d', $t) . ':00:00'  /*--}}
+                @foreach ($rooms as $room)
+                  {{--*/ $rsv = $rsv_list->get($room)->get($date) /*--}}
+                  @if ($rsv != null)
+                    <a href={{ URL::to(action('ReservationController@index') . '?' . http_build_query(array('rsv-id'=>$rsv['id'] ))) }} class="btn btn-primary btn-xs">{{$rsv['roomname'] . ' ' . $rsv['Contents']}}</a>
+                  @endif
+                @endforeach
+                
+                
+              </td>
               @endfor
           </tr>
           @endfor
@@ -41,7 +54,6 @@
       </div>
     </div>
 
-{{$rsv_list}}
 
   </body>
 </html>
