@@ -6,7 +6,7 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Room;
-use App\roomReservation;
+use App\RoomReservation;
 use Log;
 
 

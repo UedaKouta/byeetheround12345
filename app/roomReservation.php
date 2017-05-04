@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class roomReservation extends Model
+class RoomReservation extends Model
 {
     /**
      * The database table used by the model.
@@ -18,7 +18,7 @@ class roomReservation extends Model
      *
      * @var array
      */
-    protected $fillable = ['id','roomname','starttime','endtime','usernamekj','usernamekn','Contents','membernum'];
+    protected $fillable = ['id','roomname','starttime','endtime','usernamekj','usernamekn','Contents','membernum','round_off_starttime'];
 
 
 
