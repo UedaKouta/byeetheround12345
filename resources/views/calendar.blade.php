@@ -40,5 +40,8 @@
       </table>
       </div>
     </div>
+
+{{$rsv_list}}
+
   </body>
 </html>

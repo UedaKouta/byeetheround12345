@@ -38,4 +38,8 @@ class roomReservation extends Model
       return $this->insertGetId(
     ['roomname'=>$indatas[0],'starttime'=>$indatas[1],'endtime'=>$indatas[2],'usernamekj'=>$indatas[3],'usernamekn'=>$indatas[4],'Contents'=>$indatas[5],'membernum'=>10]);
     }
+    
+    public function read_date_range($from, $to) {
+      return $this->whereBetween('starttime', [$from, $to])->get();
+    }
 }
