@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('reservation','ReservationController@index');
 Route::post('reservation','ReservationController@foo');
 Route::get('calendar','CalendarController@index');
+Route::post('calendar','CalendarController@index');

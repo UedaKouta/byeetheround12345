@@ -14,7 +14,8 @@
   </head>
   <body>
     <form class="form-horizontal"  action="/reservation" method="post">
-             {{ csrf_field() }}
+
+                   {{ csrf_field() }}
       <div class="form-group">
         <label for="conferenceRoom" class="col-sm-2 control-label">会議室</label>
                <div class="col-sm-3">
@@ -25,7 +26,6 @@
             						<li><a href="#">{{ $room->name }}</a></li>
                   </option>
                @endforeach
-
           </select>
 -->
           <select class="form-control" id="rname" name="rname">
@@ -41,11 +41,11 @@
       <div class="form-group">
        <label for="startTime" class="col-sm-2 control-label">時間</label>
        <div class="col-sm-1">
-                <input type="text"  rows="5" class="form-control"  name="starttime">
+                <input type="text"  rows="5" class="form-control"  name="starttime" value="{{ $sdate }}">
        </div>
        <label for="endTime" class="col-sm-1 control-label">TO</label>
        <div class="col-sm-1">
-            <input type="text"  rows="5" class="form-control"  name="endtime">
+            <input type="text"  rows="5" class="form-control"  name="endtime" value="{{ $edate }}">
        </div>
      </div>
 
@@ -75,10 +75,16 @@
         </div>
       </div>
       <div class="form-group">
+
         <div class="col-sm-offset-2 col-sm-10">
+
                      <input type="submit">
+
+
         </div>
+
       </div>
+
     </form>
   </body>
 </html>
